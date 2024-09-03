@@ -11,11 +11,13 @@ class Solution(object):
         for char in s:
             if char in hmap1:
                 hmap1[char] += 1
-            hmap1[char] = 1
+            else:
+                hmap1[char] = 1
         for char in t:
             if char in hmap2:
                 hmap2[char] += 1
-            hmap2[char] = 1
+            else:
+                hmap2[char] = 1
         if hmap1 == hmap2:
             return True
         return False
