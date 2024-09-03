@@ -21,4 +21,4 @@ class Solution(object):
         if hmap1 == hmap2:
             return True
         return False
-        
+
