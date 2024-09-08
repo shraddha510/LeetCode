@@ -5,20 +5,19 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        hmap1 = {}
-        hmap2 = {}
+        hset1 = {}
+        hset2 = {}
 
         for char in s:
-            if char in hmap1:
-                hmap1[char] += 1
+            if char in hset1:
+                hset1[char] += 1
             else:
-                hmap1[char] = 1
+                hset1[char] = 1
         for char in t:
-            if char in hmap2:
-                hmap2[char] += 1
+            if char in hset2:
+                hset2[char] += 1
             else:
-                hmap2[char] = 1
-        if hmap1 == hmap2:
+                hset2[char] = 1
+        
+        if hset1 == hset2:
             return True
-        return False
-
