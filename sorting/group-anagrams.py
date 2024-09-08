@@ -10,18 +10,18 @@ class Solution(object):
         store count as a tuple "key"
 
         """
-        hmap = {}
-
-        for s in strs:
-            count = [0] * 26
-            for char in s:
-                count[ord(char) - ord("a")] += 1
-            key = tuple(count)
-            if key in hmap:
-                hmap[key].append(s)
-            else:
-                hmap[key] = [s]
-        return list(hmap.values())
+        anagrams = defaultdict(list)
         
+        # Iterate through each string in the list
+        for word in strs:
+            # Sort the word to form the key
+            sorted_word = ''.join(sorted(word))
+            # Add the original word to the list of its sorted version
+            anagrams[sorted_word].append(word)
+        
+        # Return the grouped anagrams as a list of lists
+        return list(anagrams.values())
+
             
+                
 
