@@ -4,18 +4,10 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        hmap = {}
+        hmap = defaultdict(list)
 
-        for s in strs:
-            count = [0] * 26
-            for char in s:
-                count[ord(char) - ord("a")] += 1
-            
-            key = tuple(count)
-            if key in hmap:
-                hmap[key].append(s)
-            else:
-                hmap[key] = [s]
-            
+        for word in strs:
+            sort = ''.join(sorted(word))
+            hmap[sort].append(word)
+
         return list(hmap.values())
-
