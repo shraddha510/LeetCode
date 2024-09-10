@@ -21,3 +21,5 @@ class Solution(object):
         
         if hset1 == hset2:
             return True
+        else:
+            return False
