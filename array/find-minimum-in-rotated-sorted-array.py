@@ -16,5 +16,7 @@ class Solution(object):
                 l = mid + 1
             elif nums[mid] < nums[r]:
                 r = mid - 1
-        
-        return min(curr_min, nums[l])
+            
+        curr_min = min(curr_min, nums[l])
+        return curr_min
+
