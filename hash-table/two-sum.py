@@ -5,14 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-
-        hset = {}
+        hmap = {}
 
         for i, num in enumerate(nums):
             diff = target - num
-            if diff in hset:
-                return(hset[diff], i)
+            if diff in hmap:
+                return i, hmap[diff]
             else:
-                hset[num] = i
-        
-        
+                hmap[num] = i
