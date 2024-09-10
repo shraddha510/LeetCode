@@ -6,6 +6,7 @@ class Solution(object):
         """
         l = 0
         r = len(s) - 1
+        curr_min = float("inf")
 
         while l < r:
             if not s[l].isalnum():
@@ -17,5 +18,5 @@ class Solution(object):
                 r -= 1
             else:
                 return False
+
         return True
-            
