@@ -5,26 +5,30 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        l, r = 0, len(nums) - 1
-
-        while l <= r:
-            mid = (l + r) // 2
-            if target == nums[mid]:
-                return mid
-
-            # left sorted portion
-            if nums[l] <= nums[mid]:
-                if target > nums[mid] or target < nums[l]:
-                    l = mid + 1
+        n = len(nums)
+        left, right = 0, n - 1
+        if n == 0: return -1
+        
+        while left <= right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target: return mid
+            
+            # inflection point to the right. Left is strictly increasing
+            if nums[mid] >= nums[left]:
+                if nums[left] <= target < nums[mid]:
+                    right = mid - 1
                 else:
-                    r = mid - 1
-            # right sorted portion
+                    left = mid + 1
+                    
+            # inflection point to the left of me. Right is strictly increasing
             else:
-                if target < nums[mid] or target > nums[r]:
-                    r = mid - 1
+                if nums[mid] < target <= nums[right]:
+                    left = mid + 1
                 else:
-                    l = mid + 1
+                    right = mid - 1
+            
         return -1
+
 
 
 
